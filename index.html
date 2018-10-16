@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		$( document ).ready(function() {
+	 	  	$("input[type='radio'].radio-based-tabs").on('change', function () {
+	         	var selected = $(".radio-based-tabs:checked");
+		        try{
+		         	var current_radio_id = $(selected).attr('id')
+		         	$('.radio-content').hide();
+		         	$('.radio-content input[type]').attr("disabled", "disabled");
+		         	$('.radio-content.' + current_radio_id).show();
+		         	$('.radio-content.' + current_radio_id + ' input[type]').removeAttr("disabled", "disabled");
+		        }catch(ex){
+					console.log( ex )
+		        }
+	    	});
+		});
+
+	</script>
+
+</head>
+<body>
+
+
+
+
+<label>
+	Tab 1
+	<input type="radio" name="option_type" checked="" value="tab-1" class="radio-based-tabs" id="tab-1">
+</label>
+
+<label>
+	Tab 2
+	<input type="radio" name="option_type" value="tab-2" class="radio-based-tabs" id="tab-2">
+</label>
+
+<div class="tab-1 radio-content"  >
+	Fields based on radio 1: 
+	<input type="" name="xyz">
+</div>
+
+<div class="tab-2 radio-content" style="display: none;">
+	Fields based on radio 2: 
+	<input type="" name="abc">
+</div>
+
+
+
+
+</body>
+</html>
